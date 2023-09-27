@@ -71,10 +71,6 @@ button {
   font-size: 90px;
 }
 
-.display-none {
-  display: none;
-}
-
 .image-card {
   display: inherit;
   object-fit: cover;
@@ -87,11 +83,17 @@ button {
   place-items: center;
   gap: 20px;
 }
+
 .button-card {
   background-color: var(--button-color);
   width: 70px;
   height: 30px;
 }
+
 .button-card:active {
   background-color: var(--button-active-color);
+}
+
+.display-none {
+  display: none;
 }

@@ -10,6 +10,14 @@ const setCardInUserInterFace = (element, card) => {
   );
 };
 
+const showCard = (element) => {
+  element
+    .querySelectorAll(".card-suit")
+    .forEach((element) => element.classList.remove("display-none"));
+  element.querySelector(".card-figure").classList.remove("display-none");
+  element.querySelector(".image-card").classList.add("display-none");
+};
+
 const userCardElement = document.querySelector(".user-card");
 const hiddenCardElement = document.querySelector(".hidden-card");
 
@@ -20,3 +28,9 @@ const hiddenCard = getRandomCard(deck);
 
 setCardInUserInterFace(userCardElement, userCard);
 setCardInUserInterFace(hiddenCardElement, hiddenCard);
+
+document.querySelectorAll(".button-card").forEach((button) =>
+  button.addEventListener("click", (event) => {
+    showCard(hiddenCardElement);
+  })
+);
