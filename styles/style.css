@@ -11,19 +11,8 @@
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+h2 {
   margin: 0;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .principal-container {
@@ -44,14 +33,11 @@ ul {
 .card {
   display: grid;
   grid: repeat(3, 1fr);
-
   border: solid 0.3rem;
   border-color: var(--main-color);
   border-radius: 30px;
-
   width: 200px;
   height: 300px;
-
   align-items: center;
   text-align: center;
 }
