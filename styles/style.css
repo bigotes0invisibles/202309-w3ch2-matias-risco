@@ -45,10 +45,6 @@ img {
   text-align: center;
 }
 
-.top-left {
-  grid-area: 1/1;
-}
-
 .center {
   grid-area: 2/2;
 }
