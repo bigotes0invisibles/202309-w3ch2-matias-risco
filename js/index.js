@@ -9,6 +9,9 @@ const createDeckOfCards = (cardType, deck) => {
 
 const getRandomCard = (deck) => deck[Math.floor(Math.random() * deck.length)];
 
+const isUserCardBigger = (userCard, hiddenCard) =>
+  userCard.value > hiddenCard.value;
+
 const cardType = {
   suits: ["♣", "♦", "♥", "♠"],
   figure: [
@@ -33,5 +36,7 @@ let deck = [];
 
 deck = createDeckOfCards(cardType, deck);
 
-const card = getRandomCard(deck);
-console.log(card);
+const userCard = getRandomCard(deck);
+const hiddenCard = getRandomCard(deck);
+
+console.log(isUserCardBigger(userCard, hiddenCard));
