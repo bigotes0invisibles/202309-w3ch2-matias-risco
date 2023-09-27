@@ -7,7 +7,7 @@ const createDeckOfCards = (cardType, deck) => {
   return deck;
 };
 
-const getRandomCard = (deck) => deck[deck.length - 1];
+const getRandomCard = (deck) => deck[Math.floor(Math.random() * deck.length)];
 
 const cardType = {
   suits: ["♣", "♦", "♥", "♠"],
