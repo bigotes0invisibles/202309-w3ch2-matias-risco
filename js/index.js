@@ -32,5 +32,10 @@ setCardInUserInterFace(hiddenCardElement, hiddenCard);
 document.querySelectorAll(".button-card").forEach((button) =>
   button.addEventListener("click", (event) => {
     showCard(hiddenCardElement);
+    document.querySelector(".game-answer").textContent = isUserGuessCorrect(
+      event.target.id,
+      userCard,
+      hiddenCard
+    );
   })
 );
