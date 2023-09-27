@@ -15,6 +15,10 @@ h2 {
   margin: 0;
 }
 
+img {
+  height: 100%;
+  width: 100%;
+}
 .principal-container {
   padding: 40px;
 }
@@ -61,4 +65,14 @@ h2 {
 .card-figure {
   font-family: var(--card-font-family);
   font-size: 90px;
+}
+
+.display-none {
+  display: none;
+}
+
+.image-card {
+  display: inherit;
+  object-fit: cover;
+  border-radius: 25px;
 }
