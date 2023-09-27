@@ -7,6 +7,8 @@ const createDeckOfCards = (cardType, deck) => {
   return deck;
 };
 
+const getRandomCard = (deck) => deck[deck.length - 1];
+
 const cardType = {
   suits: ["♣", "♦", "♥", "♠"],
   figure: [
@@ -31,4 +33,5 @@ let deck = [];
 
 deck = createDeckOfCards(cardType, deck);
 
-deck.forEach((card) => console.log(`${card.figure} ${card.suit}`));
+const card = getRandomCard(deck);
+console.log(card);
