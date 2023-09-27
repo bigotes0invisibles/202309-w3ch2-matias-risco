@@ -1,6 +1,7 @@
 :root {
-  --main-font-family: sans-serif;
-  --main-color: #ee82ee;
+  --card-font-family: tuanphan !important;
+  --main-font-family: system-ui, sans-serif;
+  --main-color: #000000;
 }
 
 *,
@@ -22,4 +23,57 @@ p {
 ul {
   list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+.principal-container {
+  padding: 40px;
+}
+
+.game-title {
+  font-family: var(--main-font-family);
+  text-align: center;
+}
+
+.cards-container {
+  padding: 70px 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card {
+  display: grid;
+  grid: repeat(3, 1fr);
+
+  border: solid 0.3rem;
+  border-color: var(--main-color);
+  border-radius: 30px;
+
+  width: 200px;
+  height: 300px;
+
+  align-items: center;
+  text-align: center;
+}
+
+.top-left {
+  grid-area: 1/1;
+}
+
+.center {
+  grid-area: 2/2;
+}
+
+.bottom-right {
+  grid-area: 3/3;
+}
+
+.card-suit {
+  font-family: var(--card-font-family);
+  font-size: 70px;
+}
+
+.card-figure {
+  font-family: var(--card-font-family);
+  font-size: 90px;
 }
