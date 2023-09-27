@@ -32,7 +32,6 @@ h2 {
 
 .card {
   display: grid;
-  grid: repeat(3, 1fr);
   border: solid 0.3rem;
   border-color: var(--main-color);
   border-radius: 30px;
