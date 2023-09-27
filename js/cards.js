@@ -31,12 +31,3 @@ const cardType = {
     "A",
   ],
 };
-
-let deck = [];
-
-deck = createDeckOfCards(cardType, deck);
-
-const userCard = getRandomCard(deck);
-const hiddenCard = getRandomCard(deck);
-
-console.log(isUserCardBigger(userCard, hiddenCard));
