@@ -1,4 +1,5 @@
-const createDeckOfCards = (cardType, deck) => {
+const createDeckOfCards = (cardType) => {
+  let deck = [];
   cardType.figure.forEach((figure, position) =>
     cardType.suits.forEach((suit) =>
       deck.push({ value: position, figure: figure, suit: suit })

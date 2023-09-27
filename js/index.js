@@ -13,8 +13,7 @@ const setCardInUserInterFace = (element, card) => {
   );
 };
 
-let deck = [];
-deck = createDeckOfCards(cardType, deck);
+const deck = createDeckOfCards(cardType);
 
 const userCard = getRandomCard(deck);
 const hiddenCard = getRandomCard(deck);
