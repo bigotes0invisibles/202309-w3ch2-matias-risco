@@ -77,19 +77,23 @@ button {
   border-radius: 25px;
 }
 
-.button-container {
-  display: flex;
-  flex-direction: column;
+.answer-container {
+  text-align: center;
   place-items: center;
-  gap: 20px;
+  padding: 10px;
+  height: 70px;
 }
 
 .game-answer {
-  text-align: center;
   font-size: 2rem;
-  height: 2rem;
   width: 15rem;
   padding: 0.5rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .button-card {
