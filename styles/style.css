@@ -43,7 +43,7 @@ button {
 }
 
 .card {
-  display: grid;
+  display: flex;
   border: solid 0.3rem;
   border-color: var(--main-color);
   border-radius: 30px;
@@ -53,12 +53,19 @@ button {
   text-align: center;
 }
 
-.center {
-  grid-area: 2/2;
+.top {
+  width: 33%;
+  align-self: flex-start;
 }
 
-.bottom-right {
-  grid-area: 3/3;
+.center {
+  width: 33%;
+  align-self: center;
+}
+
+.bottom {
+  width: 33%;
+  align-self: flex-end;
 }
 
 .card-suit {
