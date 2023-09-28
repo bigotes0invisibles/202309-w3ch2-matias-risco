@@ -19,6 +19,8 @@ const showCard = (element) => {
 };
 
 const startgame = (deck) => {
+  let haveUserGuess = false;
+
   const userCard = getRandomCard(deck);
   const hiddenCard = getRandomCard(deck);
 
@@ -31,11 +33,13 @@ const startgame = (deck) => {
   document.querySelectorAll(".button-card").forEach((button) =>
     button.addEventListener("click", (event) => {
       showCard(hiddenCardElement);
-      document.querySelector(".game-answer").textContent = isUserGuessCorrect(
-        event.target.textContent,
-        userCard,
-        hiddenCard
-      );
+      if (!haveUserGuess)
+        document.querySelector(".game-answer").textContent = isUserGuessCorrect(
+          event.target.textContent,
+          userCard,
+          hiddenCard
+        );
+      haveUserGuess = true;
     })
   );
 
