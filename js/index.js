@@ -32,7 +32,7 @@ const startgame = (deck) => {
     button.addEventListener("click", (event) => {
       showCard(hiddenCardElement);
       document.querySelector(".game-answer").textContent = isUserGuessCorrect(
-        event.target.id,
+        event.target.textContent,
         userCard,
         hiddenCard
       );
