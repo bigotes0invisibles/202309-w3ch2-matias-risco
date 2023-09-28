@@ -18,24 +18,39 @@ const showCard = (element) => {
   element.querySelector(".image-card").classList.add("display-none");
 };
 
-const userCardElement = document.querySelector(".user-card");
-const hiddenCardElement = document.querySelector(".hidden-card");
+const startgame = (deck) => {
+  const userCard = getRandomCard(deck);
+  const hiddenCard = getRandomCard(deck);
+
+  const userCardElement = document.querySelector(".user-card");
+  const hiddenCardElement = document.querySelector(".hidden-card");
+
+  setCardInUserInterFace(userCardElement, userCard);
+  setCardInUserInterFace(hiddenCardElement, hiddenCard);
+
+  document.querySelectorAll(".button-card").forEach((button) =>
+    button.addEventListener("click", (event) => {
+      showCard(hiddenCardElement);
+      document.querySelector(".game-answer").textContent = isUserGuessCorrect(
+        event.target.id,
+        userCard,
+        hiddenCard
+      );
+    })
+  );
+
+  document
+    .querySelector(".button-start-game")
+    .addEventListener("click", (event) => {
+      document
+        .querySelector(".button-start-container")
+        .classList.add("display-none");
+      document
+        .querySelector(".game-container")
+        .classList.remove("display-none");
+    });
+};
 
 const deck = createDeckOfCards(cardType);
 
-const userCard = getRandomCard(deck);
-const hiddenCard = getRandomCard(deck);
-
-setCardInUserInterFace(userCardElement, userCard);
-setCardInUserInterFace(hiddenCardElement, hiddenCard);
-
-document.querySelectorAll(".button-card").forEach((button) =>
-  button.addEventListener("click", (event) => {
-    showCard(hiddenCardElement);
-    document.querySelector(".game-answer").textContent = isUserGuessCorrect(
-      event.target.id,
-      userCard,
-      hiddenCard
-    );
-  })
-);
+startgame(deck);
