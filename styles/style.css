@@ -1,5 +1,5 @@
 :root {
-  --card-font-family: tuanphan !important;
+  --card-font-family: tuanphan;
   --main-font-family: system-ui, sans-serif;
   --main-color: #000;
   --button-color: #ff9000;
