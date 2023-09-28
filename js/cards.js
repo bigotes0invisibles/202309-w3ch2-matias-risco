@@ -10,9 +10,10 @@ const createDeckOfCards = (cardType) => {
 
 const getRandomCard = (deck) => deck[Math.floor(Math.random() * deck.length)];
 
-const isUserCardBigger = (userCard, hiddenCard) =>
-  userCard.value < hiddenCard.value ? "greater" : "smaller";
-
+const isUserCardBigger = (userCard, hiddenCard) => {
+  if (userCard.value === hiddenCard.value) return "equal";
+  return userCard.value < hiddenCard.value ? "greater" : "smaller";
+};
 const isUserGuessCorrect = (greaterOrSmaller, userCard, hiddenCard) => {
   const valueCardHidden = isUserCardBigger(userCard, hiddenCard);
   return `${valueCardHidden} ${
