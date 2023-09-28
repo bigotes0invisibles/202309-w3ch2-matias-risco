@@ -22,8 +22,8 @@ const startgame = (deck) => {
   const userCard = getRandomCard(deck);
   const hiddenCard = getRandomCard(deck);
 
-  const userCardElement = document.querySelector(".user-card");
-  const hiddenCardElement = document.querySelector(".hidden-card");
+  const userCardElement = document.querySelector(".current-card");
+  const hiddenCardElement = document.querySelector(".guess-card");
 
   setCardInUserInterFace(userCardElement, userCard);
   setCardInUserInterFace(hiddenCardElement, hiddenCard);
