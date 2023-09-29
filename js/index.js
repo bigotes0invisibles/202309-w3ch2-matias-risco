@@ -1,6 +1,6 @@
 const cards = {
-  userCard: getRandomCard(deck),
-  hiddenCard: getRandomCard(deck),
+  userCard: { value: 0, figure: "0", suit: "X" },
+  hiddenCard: { value: 0, figure: "0", suit: "X" },
   haveUserGuess: false,
 };
 
