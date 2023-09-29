@@ -48,10 +48,9 @@ const cards = {
   haveUserGuess: false,
 };
 
-startgame(deck, cards);
-
 const userCardElement = document.querySelector(".current-card");
 const hiddenCardElement = document.querySelector(".guess-card");
+startgame(deck, cards);
 
 document
   .querySelector(".button-start-game")
