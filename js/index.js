@@ -10,12 +10,12 @@ const setCardInUserInterFace = (element, card) => {
   );
 };
 
-const showCard = (element) => {
+const toggleCard = (element) => {
   element
     .querySelectorAll(".card-suit")
-    .forEach((element) => element.classList.remove("display-none"));
-  element.querySelector(".card-figure").classList.remove("display-none");
-  element.querySelector(".image-card").classList.add("display-none");
+    .forEach((element) => element.classList.toggle("display-none"));
+  element.querySelector(".card-figure").classList.toggle("display-none");
+  element.querySelector(".image-card").classList.toggle("display-none");
 };
 
 const startgame = (deck, userCardElement, hiddenCardElement) => {
@@ -30,7 +30,7 @@ const startgame = (deck, userCardElement, hiddenCardElement) => {
   document.querySelectorAll(".button-card").forEach((button) =>
     button.addEventListener("click", (event) => {
       if (!haveUserGuess) {
-        showCard(hiddenCardElement);
+        toggleCard(hiddenCardElement);
         document.querySelector(".game-answer").textContent = isUserGuessCorrect(
           event.target.textContent,
           userCard,
