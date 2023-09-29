@@ -18,29 +18,42 @@ const toggleCard = (element) => {
   element.querySelector(".image-card").classList.toggle("display-none");
 };
 
-const startgame = (deck, userCardElement, hiddenCardElement) => {
-  let haveUserGuess = false;
+const startgame = (deck, cards) => {
+  cards.haveUserGuess = false;
+  cards.userCard = getRandomCard(deck);
+  cards.hiddenCard = getRandomCard(deck);
 
-  const userCard = getRandomCard(deck);
-  const hiddenCard = getRandomCard(deck);
-
-  setCardInUserInterFace(userCardElement, userCard);
-  setCardInUserInterFace(hiddenCardElement, hiddenCard);
-
-  document.querySelectorAll(".button-card").forEach((button) =>
-    button.addEventListener("click", (event) => {
-      if (!haveUserGuess) {
-        toggleCard(hiddenCardElement);
-        document.querySelector(".game-answer").textContent = isUserGuessCorrect(
-          event.target.textContent,
-          userCard,
-          hiddenCard
-        );
-        haveUserGuess = true;
-      }
-    })
-  );
+  setCardInUserInterFace(userCardElement, cards.userCard);
+  setCardInUserInterFace(hiddenCardElement, cards.hiddenCard);
 };
+
+const resetGame = (deck, cards) => {
+  cards.haveUserGuess = false;
+
+  document
+    .querySelector(".button-start-container")
+    .classList.remove("display-none");
+  document.querySelector(".game-container").classList.add("display-none");
+
+  document.querySelector(".game-answer").textContent = "";
+
+  toggleCard(hiddenCardElement);
+
+  startgame(deck, cards);
+};
+
+const deck = createDeckOfCards(cardType);
+
+const userCardElement = document.querySelector(".current-card");
+const hiddenCardElement = document.querySelector(".guess-card");
+
+const cards = {
+  userCard: getRandomCard(deck),
+  hiddenCard: getRandomCard(deck),
+  haveUserGuess: false,
+};
+
+startgame(deck, cards);
 
 document
   .querySelector(".button-start-game")
@@ -48,11 +61,24 @@ document
     document
       .querySelector(".button-start-container")
       .classList.add("display-none");
+
     document.querySelector(".game-container").classList.remove("display-none");
   });
-const deck = createDeckOfCards(cardType);
 
-const userCardElement = document.querySelector(".current-card");
-const hiddenCardElement = document.querySelector(".guess-card");
+document.querySelectorAll(".button-card").forEach((button) =>
+  button.addEventListener("click", (event) => {
+    if (!cards.haveUserGuess) {
+      toggleCard(hiddenCardElement);
 
-startgame(deck, userCardElement, hiddenCardElement);
+      document.querySelector(".game-answer").textContent = isUserGuessCorrect(
+        event.target.textContent,
+        cards.userCard,
+        cards.hiddenCard
+      );
+
+      cards.haveUserGuess = true;
+    } else {
+      resetGame(deck, cards);
+    }
+  })
+);
