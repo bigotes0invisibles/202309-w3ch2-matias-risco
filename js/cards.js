@@ -1,3 +1,8 @@
+const cardType = {
+  suits: ["♣", "♦", "♥", "♠"],
+  figure: ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"],
+};
+
 const createDeckOfCards = (cardType) => {
   let deck = [];
   cardType.figure.forEach((figure, position) =>
@@ -19,9 +24,4 @@ const isUserGuessCorrect = (greaterOrSmaller, userCard, hiddenCard) => {
   return `${valueCardHidden} ${
     greaterOrSmaller === valueCardHidden ? "👌" : "👎"
   }`;
-};
-
-const cardType = {
-  suits: ["♣", "♦", "♥", "♠"],
-  figure: ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"],
 };

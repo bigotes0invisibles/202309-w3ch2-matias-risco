@@ -1,3 +1,12 @@
+const cards = {
+  userCard: getRandomCard(deck),
+  hiddenCard: getRandomCard(deck),
+  haveUserGuess: false,
+};
+
+const userCardElement = document.querySelector(".current-card");
+const hiddenCardElement = document.querySelector(".guess-card");
+
 const setCardInUserInterFace = (element, card) => {
   const cardSuitElements = element.querySelectorAll(".card-suit");
   cardSuitElements.forEach(
@@ -42,14 +51,6 @@ const resetGame = () => {
 
 const deck = createDeckOfCards(cardType);
 
-const cards = {
-  userCard: getRandomCard(deck),
-  hiddenCard: getRandomCard(deck),
-  haveUserGuess: false,
-};
-
-const userCardElement = document.querySelector(".current-card");
-const hiddenCardElement = document.querySelector(".guess-card");
 startgame(deck, cards);
 
 document
