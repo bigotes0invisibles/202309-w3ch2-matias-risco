@@ -27,7 +27,7 @@ const startgame = (deck, cards) => {
   setCardInUserInterFace(hiddenCardElement, cards.hiddenCard);
 };
 
-const resetGame = (deck, cards) => {
+const resetGame = () => {
   cards.haveUserGuess = false;
 
   document
@@ -77,8 +77,8 @@ document.querySelectorAll(".button-card").forEach((button) =>
       );
 
       cards.haveUserGuess = true;
-    } else {
-      resetGame(deck, cards);
+
+      setTimeout(resetGame, 3000);
     }
   })
 );
