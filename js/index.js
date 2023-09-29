@@ -18,43 +18,41 @@ const showCard = (element) => {
   element.querySelector(".image-card").classList.add("display-none");
 };
 
-const startgame = (deck) => {
+const startgame = (deck, userCardElement, hiddenCardElement) => {
   let haveUserGuess = false;
 
   const userCard = getRandomCard(deck);
   const hiddenCard = getRandomCard(deck);
-
-  const userCardElement = document.querySelector(".current-card");
-  const hiddenCardElement = document.querySelector(".guess-card");
 
   setCardInUserInterFace(userCardElement, userCard);
   setCardInUserInterFace(hiddenCardElement, hiddenCard);
 
   document.querySelectorAll(".button-card").forEach((button) =>
     button.addEventListener("click", (event) => {
-      showCard(hiddenCardElement);
-      if (!haveUserGuess)
+      if (!haveUserGuess) {
+        showCard(hiddenCardElement);
         document.querySelector(".game-answer").textContent = isUserGuessCorrect(
           event.target.textContent,
           userCard,
           hiddenCard
         );
-      haveUserGuess = true;
+        haveUserGuess = true;
+      }
     })
   );
-
-  document
-    .querySelector(".button-start-game")
-    .addEventListener("click", (event) => {
-      document
-        .querySelector(".button-start-container")
-        .classList.add("display-none");
-      document
-        .querySelector(".game-container")
-        .classList.remove("display-none");
-    });
 };
 
+document
+  .querySelector(".button-start-game")
+  .addEventListener("click", (event) => {
+    document
+      .querySelector(".button-start-container")
+      .classList.add("display-none");
+    document.querySelector(".game-container").classList.remove("display-none");
+  });
 const deck = createDeckOfCards(cardType);
 
-startgame(deck);
+const userCardElement = document.querySelector(".current-card");
+const hiddenCardElement = document.querySelector(".guess-card");
+
+startgame(deck, userCardElement, hiddenCardElement);
