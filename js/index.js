@@ -28,24 +28,19 @@ const startgame = (deck, cards) => {
 };
 
 const resetGame = () => {
-  cards.haveUserGuess = false;
-
   document
     .querySelector(".button-start-container")
     .classList.remove("display-none");
+
   document.querySelector(".game-container").classList.add("display-none");
 
   document.querySelector(".game-answer").textContent = "";
 
   toggleCard(hiddenCardElement);
-
   startgame(deck, cards);
 };
 
 const deck = createDeckOfCards(cardType);
-
-const userCardElement = document.querySelector(".current-card");
-const hiddenCardElement = document.querySelector(".guess-card");
 
 const cards = {
   userCard: getRandomCard(deck),
@@ -54,6 +49,9 @@ const cards = {
 };
 
 startgame(deck, cards);
+
+const userCardElement = document.querySelector(".current-card");
+const hiddenCardElement = document.querySelector(".guess-card");
 
 document
   .querySelector(".button-start-game")
